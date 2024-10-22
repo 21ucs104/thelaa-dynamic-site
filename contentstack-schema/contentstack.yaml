@@ -1,0 +1,29 @@
+content_types:
+  - uid: home_page
+    name: Home Page
+    schema:
+      - uid: title
+        data_type: text
+      - uid: description
+        data_type: rich_text
+
+  - uid: about_us
+    name: About Us
+    schema:
+      - uid: title
+        data_type: text
+      - uid: description
+        data_type: rich_text
+
+  - uid: services
+    name: Services
+    schema:
+      - uid: title
+        data_type: text
+      - uid: services
+        data_type: array
+        fields:
+          - uid: name
+            data_type: text
+          - uid: description
+            data_type: rich_text

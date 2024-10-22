@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thelaa Dynamic Site</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #4CAF50;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hero-section {
+            background: url('https://via.placeholder.com/1200x600') no-repeat center center/cover;
+            height: 60vh;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .content-section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .section-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .service-cards {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .service-card {
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 5px;
+            flex: 1;
+            margin: 0 10px;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .service-cards {
+                flex-direction: column;
+            }
+
+            .service-card {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Thelaa</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About Us</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#contact" class="nav-link">Contact Us</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section id="home" class="hero-section">
+            <h1>Welcome to Thelaa</h1>
+            <p>Your partner in second-hand mobile phones.</p>
+            <button id="explore-button">Explore Now</button>
+        </section>
+
+        <section id="about" class="content-section">
+            <h2>About Us</h2>
+            <p>We provide a platform for buying and selling second-hand mobile phones. Our mission is to make quality phones accessible to everyone.</p>
+            <img src="https://via.placeholder.com/600x400" alt="About Us" class="section-image">
+        </section>
+
+        <section id="services" class="content-section">
+            <h2>Our Services</h2>
+            <div class="service-cards">
+                <div class="service-card">
+                    <h3>Quality Assurance</h3>
+                    <p>All our phones undergo rigorous quality checks to ensure they meet our standards.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Fast Delivery</h3>
+                    <p>We offer quick delivery options for our customers across the country.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Customer Support</h3>
+                    <p>Our dedicated support team is here to assist you 24/7.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="content-section">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Thelaa. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('explore-button').addEventListener('click', () => {
+            document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            if (navLinks.classList.contains('active')) {
+                navLinks.style.display = 'flex';
+            } else {
+                navLinks.style.display = 'none';
+            }
+        });
+
+        // Handle form submission
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Simulate form submission (replace with real submission logic)
+            alert(`Message sent!\nName: ${name}\nEmail: ${email}\nMessage: ${message}`);
+            
+            // Clear the form
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>
